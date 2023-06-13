@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form id="testAgain" method="post" action="https://script.google.com/macros/s/AKfycbwVB28k4sZtAZzhDscuAc1IkB271qsj3AK7f8axAhO2mhuKGIrlxwtRwESGxbxx5xfd/exec">
+    <input name="Email" type="email" placeholder="Email Address" required>
+    <input name="Name" type="text" placeholder="Your Name">
+    <button type="submit" value="Submit">Submit</button>
+  </form>
+  <script>
+    window.addEventListener("load", function() {
+  const form = document.getElementById('testAgain');
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const action = e.target.action;
+    fetch(action, {
+      method: 'POST',
+      body: data,
+    })
+    .then(() => {
+      alert("Success!");
+    })
+  });
+});
+
+  </script>
+</body>
+</html>
